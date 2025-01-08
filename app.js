@@ -12,10 +12,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // fontion qui permet d'afficher la liste des taches 
     function ajouterTache(tache, e) {
         const li = document.createElement('li');
-        if (tache !== '') {
-            li.innerText = tache;
-        } else {
+        if (tache.value === '') {
             e.preventDefault();
+        } else {
+            li.innerText = tache;
         }
         // console.log(li);
         taskList.append(li);
@@ -24,11 +24,19 @@ window.addEventListener('DOMContentLoaded', () => {
     // button ecouteurs d'evenement executant les fonctions
     addTaskBtn.addEventListener('click', (e) => {
         var tache = taskInput.value;
-        const k = tasks.push(tache)
-        localStorage.setItem('tasks', JSON.stringify(tasks))
-        ajouterTache(tache)
-        taskInput.value = '';
-        addMultipleTasks(tasks);
+
+        if (tache.trim() === '') {
+            e.preventDefault();
+            taskInput.classList.add('erreur');
+        } else {
+            const k = tasks.push(tache)
+            localStorage.setItem('tasks', JSON.stringify(tasks))
+            ajouterTache(tache);
+            taskInput.value = '';
+            addMultipleTasks(tasks);
+            taskInput.classList.remove('erreur');
+        }
+
     })
 
 
@@ -39,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('tasks', JSON.stringify(t));
         newTasks.array.forEach(task => displayTask(task));
     }
-    
+
     // Utilisation de la destructuration pour afficher 
     // les propriétés d'une tâche dans la console
     if (tasks.length > 0) {
