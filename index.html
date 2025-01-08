@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntaxe de décomposition</title>
+</head>
+
+<body>
+
+    <script>
+        // Utilisez la syntaxe de décomposition pour extraire 
+        // les valeurs d'un objet et affichez-les dans la console.
+        const utilisateur = {
+            nom: 'Papa',
+            cour: 'Programmation',
+            niveau: 'debutant'
+        }
+
+        console.log("tilisation d'une syntaxe de décomposition");
+        
+        const { nom, cour, niveau } = utilisateur;
+        console.log('Nom : ' + nom +
+            '\nCour : ' + cour +
+            '\nNiveau : ' + niveau
+        );
+
+        // Utilisez les fonctions fléchées pour créer une fonction 
+        // qui ajoute deux nombres et affiche le résultat dans la console.
+        console.log("\n\ntilisation d'une fonctions fléchées");
+        const flechefunc = (x, y) => {
+            console.log('Nbr 1 : ' + x +
+                        '\nNbr 2 : ' + y
+            );
+        }
+
+        flechefunc(25, 30)
+    </script>
+</body>
+
+</html>
