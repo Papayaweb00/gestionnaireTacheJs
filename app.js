@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // les propriétés d'une tâche dans la console
     if (tasks.length > 0) {
         const [firstTask, ...restTasks] = tasks;
-        console.log('Premiere tache :', firstTask);
+        console.log('Premiére tache :', firstTask);
         console.log('Reste des taches :', restTasks);
     }
 })
